@@ -1,0 +1,25 @@
+name: UpdateAzureTemplateSpecs
+on:   
+  release:
+    types: [published]
+
+
+env:
+  TEMPLATE_NAME: UbuntuServer18_04
+  RESOURCE_GROUP: rg-prod-01-canadacentral-mca
+
+jobs:
+
+  push-new-ts-version:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get the version
+      id: get_version
+      run: echo ::set-output name=VERSION::$(echo $GITHUB_REF | cut -d / -f 3)
+
+    - uses: actions/checkout@v2
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - run: az ts create --name $TEMPLATE_NAME --version "${{ steps.get_version.outputs.VERSION }}" --resource-group $RESOURCE_GROUP --location "canadacentral" --template-file "./azuredeploy.json" --description "Custom template to create a new Ubuntu Server VM for Agri-Marché."   
