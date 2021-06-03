@@ -208,6 +208,7 @@
                     }
                 }
             },
+            // see https://docs.microsoft.com/en-us/azure/azure-monitor/agents/resource-manager-agent
             "resources": [
                 {
                     "type": "Microsoft.Compute/virtualMachines/extensions",
