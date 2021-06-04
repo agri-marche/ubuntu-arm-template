@@ -67,15 +67,6 @@
             },
             "allowedValues": [ "saturday", "sunday" ],
             "defaultValue": "saturday"
-        },
-        "workspaceName": {
-            "type": "string",
-            "metadata": {
-                "description": "Log Analytics WorkspaceName"
-            },
-            "allowedValues": [ "la-workspace-agri-default" ],
-            "defaultValue": "la-workspace-agri-default"
-
         }
     },
     "variables": {
@@ -103,7 +94,8 @@
             "Importance": "[parameters('importance')]",
             "App": "[parameters('app')]",
             "PatchPolicy": "[parameters('patchPolicy')]"
-        }
+        },
+        "workspaceName": "la-workspace-agri-default"
     },
     "resources": [
         {
