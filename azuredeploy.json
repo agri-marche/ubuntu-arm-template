@@ -213,10 +213,10 @@
                         "typeHandlerVersion": "1.7",
                         "autoUpgradeMinorVersion": true,
                         "settings": {
-                            "workspaceId": "[reference(resourceId('rg-automation-gen', 'Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-03-20').customerId]"
+                            "workspaceId": "[reference(resourceId('rg-automation-gen', 'Microsoft.OperationalInsights/workspaces', variables('workspaceName')), '2015-03-20').customerId]"
                         },
                         "protectedSettings": {
-                            "workspaceKey": "[listKeys(resourceId('rg-automation-gen','Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-03-20').primarySharedKey]"
+                            "workspaceKey": "[listKeys(resourceId('rg-automation-gen','Microsoft.OperationalInsights/workspaces', variables('workspaceName')), '2015-03-20').primarySharedKey]"
                         }
                     }
                 }
