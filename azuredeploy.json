@@ -201,8 +201,8 @@
             "resources": [
                 {
                     "type": "Microsoft.Compute/virtualMachines/extensions",
-                    "name": "[concat(parameters('dnsLabelPrefix'), '/Microsoft.Insights.LogAnalyticsAgent')]",
-                    "apiVersion": "2015-06-15",
+                    "name": "[concat(parameters('dnsLabelPrefix'), '/OMSExtension')]",
+                    "apiVersion": "2018-06-01",
                     "location": "[resourceGroup().location]",
                     "dependsOn": [
                         "[concat('Microsoft.Compute/virtualMachines/', parameters('dnsLabelPrefix'))]"
@@ -210,7 +210,7 @@
                     "properties": {
                         "publisher": "Microsoft.EnterpriseCloud.Monitoring",
                         "type": "OmsAgentForLinux",
-                        "typeHandlerVersion": "1.7",
+                        "typeHandlerVersion": "1.10",
                         "autoUpgradeMinorVersion": true,
                         "settings": {
                             "workspaceId": "[reference(resourceId('rg-automation-gen', 'Microsoft.OperationalInsights/workspaces', variables('workspaceName')), '2015-03-20').customerId]"
