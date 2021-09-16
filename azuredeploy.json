@@ -77,9 +77,9 @@
         }
     },
     "variables": {
-        "imagePublisher": "Canonical",
-        "imageOffer": "UbuntuServer",
-        "sku": "18.04-LTS",
+        "imagePublisher": "canonical",
+        "imageOffer": "0001-com-ubuntu-server-focal",
+        "sku": "20_04-lts",
         "nicName": "[concat('nic-',parameters('dnsLabelPrefix'))]",
         "vnetID": "[resourceId('rg-prod-01-canadacentral-mca', 'Microsoft.Network/virtualNetworks', parameters('existingVNETName'))]",
         "subnetId": "[concat(variables('vnetID'),'/subnets/', parameters('existingSubnetName'))]",
@@ -207,7 +207,6 @@
                     }
                 }
             },
-            // see https://docs.microsoft.com/en-us/azure/azure-monitor/agents/resource-manager-agent
             "resources": [
                 {
                     "type": "Microsoft.Compute/virtualMachines/extensions",
